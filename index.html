@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十二律古风音乐联盟-古风雅韵与音乐交流平台</title>
+    <meta name="description" content="十二律古风音乐联盟致力于推广中国传统古风音乐文化，提供古风音乐资讯、作品展示、曲谱下载及音乐人交流社区。探索汉服配乐、国风创作与传统文化的新生。">
+    <meta name="keywords" content="十二律古风音乐联盟,古风音乐,汉服配乐,国风音乐,古风曲谱,原创音乐人,传统文化">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #d35400;
+            --accent-color: #f1c40f;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #fdfbf7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-family: "KaiTi", serif;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/seed/gufengmusic/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-family: "KaiTi", serif;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Intro Section */
+        .intro {
+            background-color: var(--bg-white);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .intro-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Music Showcase */
+        .showcase {
+            background-color: var(--bg-white);
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text-light);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .music-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .music-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .music-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .music-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-artist {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .card-tags span {
+            display: inline-block;
+            font-size: 12px;
+            padding: 2px 8px;
+            background-color: #f0f0f0;
+            color: #666;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        /* Community/Forum Section */
+        .community {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .community .section-title {
+            color: #fff;
+        }
+
+        .community .section-title::after {
+            background-color: var(--accent-color);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .topic-card h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .topic-card p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .topic-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        /* Join CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+                margin-top: 15px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo"><span>律</span>十二律</a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#about">联盟简介</a></li>
+                    <li><a href="#works">精选作品</a></li>
+                    <li><a href="#community">曲友社区</a></li>
+                    <li><a href="#join">加入我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>寻音十二律，共谱古风雅韵</h1>
+            <p>汇聚海内外古风音乐爱好者，推广汉服配乐与国风创作，传承中华音乐之美。</p>
+            <div>
+                <a href="#works" class="btn btn-primary">聆听佳作</a>
+                <a href="#join" class="btn btn-outline">成为曲友</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="about" class="section-padding intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>关于十二律古风音乐联盟</h2>
+                    <p>“十二律”源于中国传统音乐理论，代表音律的十二个标准高度。我们以此为名，旨在建立一个纯粹、专业的古风音乐交流平台。无论你是擅长弹奏古筝、琵琶的演奏家，还是热衷于填词谱曲的创作人，这里都是你展示才华、寻找共鸣的归属地。</p>
+                    <p>联盟致力于挖掘具有东方美学的原创作品，打破次元壁，让传统乐器与现代编曲完美融合，为听众带来沉浸式的听觉盛宴。</p>
+                    <div class="intro-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>入驻曲友</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>1200+</h3>
+                            <p>原创作品</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50W+</h3>
+                            <p>月度播放</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <img src="https://picsum.photos/seed/gufeng/600/400.jpg" alt="古风音乐演奏场景">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding features">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">联盟特色</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">♫</div>
+                    <h3>原创扶持计划</h3>
+                    <p>为优质原创古风作品提供展示窗口与推广资源，挖掘新锐音乐人。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♫</div>
+                    <h3>曲谱共享库</h3>
+                    <p>收录各类古风曲谱、编配素材，方便曲友学习交流与二创。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♫</div>
+                    <h3>线下雅集活动</h3>
+                    <p>定期举办汉服音乐会、古琴体验课，促进曲友线下面对面交流。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♫</div>
+                    <h3>专业音频制作</h3>
+                    <p>提供基础混音指导与后期制作建议，提升作品整体听感质量。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Showcase Section -->
+    <section id="works" class="section-padding showcase">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">精选曲目</h2>
+                <div class="filter-bar">
+                    <button class="filter-btn active">全部</button>
+                    <button class="filter-btn">古琴</button>
+                    <button class="filter-btn">琵琶</button>
+                    <button class="filter-btn">流行古风</button>
+                    <button class="filter-btn">纯音乐</button>
+                </div>
+            </div>
+            
+            <div class="music-list">
+                <!-- Card 1 -->
+                <article class="music-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/music1/400/300.jpg" alt="曲目封面">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">山水之间</h3>
+                        <p class="card-artist">演奏：墨染 / 填词：听风</p>
+                        <div class="card-tags">
+                            <span>古琴</span>
+                            <span>纯音乐</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="music-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/music2/400/300.jpg" alt="曲目封面">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">醉梦江湖</h3>
+                        <p class="card-artist">编曲：南宫羽 / 演唱：林夕</p>
+                        <div class="card-tags">
+                            <span>琵琶</span>
+                            <span>流行古风</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="music-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/music3/400/300.jpg" alt="曲目封面">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">月下独酌</h3>
+                        <p class="card-artist">演奏：青衫客</p>
+                        <div class="card-tags">
+                            <span>笛子</span>
+                            <span>纯音乐</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="music-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/music4/400/300.jpg" alt="曲目封面">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">长安忆</h3>
+                        <p class="card-artist">编曲：玄机 / 演唱：苏小小</p>
+                        <div class="card-tags">
+                            <span>古筝</span>
+                            <span>流行古风</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="music-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/music5/400/300.jpg" alt="曲目封面">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">春江花月夜</h3>
+                        <p class="card-artist">合奏：十二律乐团</p>
+                        <div class="card-tags">
+                            <span>合奏</span>
+                            <span>传统</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="music-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/music6/400/300.jpg" alt="曲目封面">
+                        <div class="play-overlay">
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">剑影流光</h3>
+                        <p class="card-artist">编曲：天策 / 演唱：萧忆情</p>
+                        <div class="card-tags">
+                            <span>摇滚古风</span>
+                            <span>流行古风</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section-padding community">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">曲友社区热议</h2>
+            </div>
+            <div class="community-grid">
+                <div class="topic-card">
+                    <h4>[求助] 关于古琴泛音的指法探讨</h4>
+                    <p>最近练习《平沙落雁》，发现泛音的音色总是不够通透，请问各位前辈有什么指法建议吗？</p>
+                    <div class="topic-meta">
+                        <span>作者：初学者</span>
+                        <span>回复：12</span>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <h4>[招募] 寻找汉服拍摄配乐志愿者</h4>
+                    <p>下周有大型汉服走秀活动，寻找擅长后期混音的曲友帮忙处理背景音乐，提供劳务报酬。</p>
+                    <div class="topic-meta">
+                        <span>作者：墨客</span>
+                        <span>回复：35</span>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <h4>[分享] 个人原创古风EP发布</h4>
+                    <p>历时一年制作完成的首张个人专辑，包含五首原创曲目，欢迎各位曲友试听并提出宝贵意见。</p>
+                    <div class="topic-meta">
+                        <span>作者：云深不知处</span>
+                        <span>回复：88</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section id="join" class="section-padding cta-section">
+        <div class="container">
+            <h2>加入十二律，共谱华章</h2>
+            <p>无论你是独奏者还是合奏团，无论你是资深乐手还是初入门槛的爱好者，这里都有属于你的舞台。</p>
+            <a href="#" class="btn btn-outline" style="border-color: #fff; color: #fff;">立即注册</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>十二律古风音乐联盟</h3>
+                    <p>传承国乐，弘扬古风。我们是一个致力于推广中国传统音乐文化的非营利性交流组织。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">曲谱下载</a></li>
+                        <li><a href="#">活动日程</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>音乐分类</h4>
+                    <ul>
+                        <li><a href="#">古琴</a></li>
+                        <li><a href="#">琵琶</a></li>
+                        <li><a href="#">二胡</a></li>
+                        <li><a href="#">现代编曲</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">网易云音乐</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 十二律古风音乐联盟 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Simple Filter Interaction (Visual Only)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+                      </html>
